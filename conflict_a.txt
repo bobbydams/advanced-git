@@ -1,1 +1,1 @@
-conflict a
+conflict conflict-between-branch-1
