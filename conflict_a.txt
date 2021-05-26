@@ -1,1 +1,1 @@
-conflict a
+conflict feature/conflict-between-branch-2
