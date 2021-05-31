@@ -34,19 +34,29 @@ You can use rebase to update your branch to bring in the latest changes from a r
 
 In this example we use branch `feature/no-conflict`
 
+First checkout the branch you want to rebase
+
 ```shell
-# First checkout the branch you want to rebase
 $ git checkout feature/my-feature-branch
+```
 
-# Next, fetch all changes from the remote origin (prune will remove any remote-tracking references that no longer exist on the remote)
+Next, fetch all changes from the remote origin (prune will remove any remote-tracking references that no longer exist on the remote)
+
+```shell
 $ git fetch --all --prune
+```
 
-# Then, run the rebase command against the origin/develop branch
+Then, run the rebase command against the origin/develop branch
+
+```shell
 $ git rebase origin/develop
+```
 
-# Finally, push your changes to your remote branch. Since rebasing changes history, you will need to force push. 
---force-with-lease is a safer option that will not overwrite any work on the remote branch if more commits were added
+Finally, push your changes to your remote branch. Since rebasing changes history, you will need to force push. 
+`--force-with-lease` is a safer option that will not overwrite any work on the remote branch if more commits were added
 to the remote branch (by another team-member or coworker or what have you)
+
+```shell
 $ git push origin feature/my-feature-branch --force-with-lease
 ```
 
