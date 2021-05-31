@@ -140,7 +140,7 @@ Changes to be committed:
 	modified:   conflict_b.txt
 ```
 
-Then run git rebase --continue to finish the conflict resolution.
+Then run `git rebase --continue` to finish the conflict resolution.
 
 ```shell
 $ git rebase --continue
