@@ -28,6 +28,81 @@ $ git checkout feature/branch-to-squash
 $ git rebase -i HEAD~4
 ```
 
+This will open up your default editor. In the example below we use vim
+
+You will see the following file open, to squash you will need to add s to line 2 - 4. Tip: In vim you can type ciw and type s and then . on each line you want to change
+
+
+
+Dimension Platform
+
+…
+
+Version Control Strategy
+
+
+
+
+
+
+Share
+
+
+Version Control Strategy
+Created by Robert Jongkind
+Last updated just a moment ago by Bobby Drake6 min read2 people viewed2 people viewed
+Overview
+In the engineering team we follow Git Flow with Rebasing. An overview of this flow can be found here git flow with rebasing 
+
+Branching
+Since we are using git flow we have a production branch called main and a development branch called develop. When beginning to work on a new branch, choose from the following branch prefixes: 
+
+feature/ - use this prefix when creating a branch which represents a new feature or an update to an existing feature.
+
+bugfix/ - use this prefix when creating a branch which represents a bug fix to an existing feature.
+
+hotfix/ - use this feature when making immediate fixes which were not logged in a bug fix ticket; or, when making fixes to branches which were already merged in previously. This prefix type should only be used sparingly.
+
+release/ - use this branch when creating a new release with a release tag.
+
+Rebase and Squash
+To keep branches up-to-date with the develop branch and to keep git history clean, the git rebase and git squash commands can be used.
+
+Default Git Editor
+Before starting, if you are not comfortable with using the Vim editor, you can change your default Git editor to the one of your choice. Below is how to set VSCode as your default Git editor
+
+
+$ git config --global core.editor "code --wait"
+Squashing Commits
+If you have many small commits that are not useful, then you may want to squash them into one single commit. This can be done with the squash command. In the example below, we will squash 4 commits into one. First, you will need to determine how many commits are in your branch. We also pass the -i option which is the “interactive” mode. This will open your default editor, which is usually vim on Unix machines. You can change your default editor
+
+
+$ git checkout feature/my-feature-branch
+$ git rebase -i HEAD~4
+This will open up your default editor. In the example below we use vim
+
+You will see the following file open, to squash you will need to add s to line 2 - 4. Tip: In vim you can type ciw and type s and then . on each line you want to change
+
+When complete, Save this file and Close.
+
+Finally, the last editor appears where you can change your commit message. You will need to delete the older commit message. 
+
+Tip: In vim you can press SHFT + V and then type d to delete the other lines.
+
+Update your final commit message. You can add multiple lines with bullet points, if necessary.
+
+Save this file and close.
+
+When complete, you will see the following message
+
+```shell
+[detached HEAD d0256c3] my final commit message
+ Date: Mon May 31 11:45:06 2021 +0200
+ 1 file changed, 2 insertions(+)
+ create mode 100644 file_to_squash.txt
+Successfully rebased and updated refs/heads/feature/branch-to-squash.
+```
+
 # Simple Rebase
 
 You can use rebase to update your branch to bring in the latest changes from a remote branch. The example below brings in changes from the latest `main` branch.
